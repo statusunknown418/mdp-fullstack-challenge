@@ -11,7 +11,7 @@
     "tsc": "tsc -p tsconfig.json --noEmit",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "pre-commit": "yarn lint && yarn format",
-    "pre-push": "yarn lint-production && tsc"
+    "pre-push": "yarn lint:production && tsc"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
