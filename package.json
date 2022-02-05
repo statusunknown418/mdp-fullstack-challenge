@@ -5,18 +5,39 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:production": "next lint --max-warnings 0",
+    "postinstall": "husky install",
+    "tsc": "tsc -p tsconfig.json --noEmit",
+    "format": "prettier --write '**/*.{ts,tsx}'",
+    "pre-commit": "yarn lint && yarn format",
+    "pre-push": "yarn lint-production && tsc"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.3",
+    "@hookform/resolvers": "^2.8.8",
+    "@prisma/client": "^3.9.1",
     "next": "12.0.10",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.26.0",
+    "react-hot-toast": "^2.2.0",
+    "zod": "^3.11.6"
   },
   "devDependencies": {
     "@types/node": "17.0.14",
     "@types/react": "17.0.39",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "autoprefixer": "^10.4.2",
     "eslint": "8.8.0",
-    "eslint-config-next": "12.0.10",
+    "eslint-config-next": "^12.0.10",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "postcss": "^8.4.6",
+    "prettier": "^2.5.1",
+    "prisma": "^3.9.1",
+    "tailwindcss": "^3.0.18",
     "typescript": "4.5.5"
   }
 }
