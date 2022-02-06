@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { fetcher } from './fetcher'
 
 export const useOperations = <TResponse>() => {
-  const [response, setResponse] = useState<TResponse[]>([])
+  const [response, setResponse] = useState<TResponse[] | null>(null)
   const [error, setError] = useState<Error>()
   const [isLoading, setIsLoading] = useState(false)
 
