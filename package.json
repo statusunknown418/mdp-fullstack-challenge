@@ -11,12 +11,14 @@
     "tsc": "tsc -p tsconfig.json --noEmit",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "pre-commit": "yarn lint && yarn format",
-    "pre-push": "yarn lint:production && tsc"
+    "pre-push": "yarn lint:production"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
     "@hookform/resolvers": "^2.8.8",
     "@prisma/client": "^3.9.1",
+    "@radix-ui/react-label": "^0.1.4",
+    "clsx": "^1.1.1",
     "next": "12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",

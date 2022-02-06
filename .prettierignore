@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.husky/
+.git/
+.gitignore
+.DS_Store
+.env.*
+
