@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             color: '#fff',
           },
         }}
-        position="bottom-center"
+        position="top-center"
       />
     </>
   )
