@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 
 export const Tabs: NextPage = ({ children }) => {
   return (
-    <div className="w-full max-w-md px-2 py-16 sm:px-0">
+    <div className="p-1 w-full max-w-md flex flex-col gap-2 md:flex md:items-center md:justify-between rounded-primary bg-white/10">
       <Tab.Group>{children}</Tab.Group>
     </div>
   )

@@ -8,7 +8,10 @@ export type TLabelProps = {
 
 export const Label: NextPage<TLabelProps> = ({ htmlFor, title }) => {
   return (
-    <LabelPrimitive.Root htmlFor={htmlFor} className="text-sm font-semibold cursor-pointer">
+    <LabelPrimitive.Root
+      htmlFor={htmlFor}
+      className="text-sm font-semibold cursor-pointer capitalize"
+    >
       {title}
     </LabelPrimitive.Root>
   )
