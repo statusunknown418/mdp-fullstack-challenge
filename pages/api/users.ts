@@ -28,7 +28,6 @@ export default async function usersHandler(
 
       res.status(200).json({ created: newUser })
     } catch (error) {
-      console.log(error)
       res.status(500).json({
         message: 'Internal Server Error',
       })
