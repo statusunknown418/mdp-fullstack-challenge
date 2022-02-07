@@ -1,7 +1,4 @@
-export const fetcher = async <TResponse>(
-  url: string,
-  payload?: Record<string, unknown>
-): Promise<TResponse[]> => {
+export const fetcher = async (url: string, payload?: Record<string, unknown>) => {
   const data = await fetch(`${url}`, {
     method: payload ? 'POST' : 'GET',
     headers: {
