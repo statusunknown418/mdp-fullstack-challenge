@@ -11,9 +11,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="max-w-7xl mx-auto grid place-content-center gap-8 p-10">
         <h1 className="text-4xl font-extrabold">Dashboard</h1>
-
         <section>
           <InitialForm />
         </section>

@@ -33,6 +33,7 @@ export const InitialForm: NextPage = () => {
     }
 
     const data = await executor('/api/hello', formData)
+
     data && !error && toast.success('Submitted successfully')
   }
 
@@ -40,13 +41,12 @@ export const InitialForm: NextPage = () => {
 
   return (
     <form onSubmit={onSubmit} className="grid place-content-center">
-      <div className="grid grid-cols-1 gap-4 max-w-4xl">
+      <div className="grid grid-cols-1 gap-4">
         <Fieldset
           Label={<Label htmlFor="name" title="Name" />}
           RenderElement={
             <>
               <input {...register('name')} type="text" className="custom-input" id="name" />
-              {errors.name && <span className="text-xs text-red-500">* {errors.name.message}</span>}
             </>
           }
         />
@@ -56,9 +56,6 @@ export const InitialForm: NextPage = () => {
           RenderElement={
             <>
               <input {...register('lastName')} className="custom-input" id="lastName" />
-              {errors.lastName && (
-                <span className="text-xs text-red-500">{errors.lastName?.message}</span>
-              )}
             </>
           }
         />
@@ -73,10 +70,9 @@ export const InitialForm: NextPage = () => {
           }
         />
 
-        <span>{errors.name?.message}</span>
-        <Button designation="primary" title="Submit" type="submit" disabled={isLoading} />
+        {errors.name && <span className="text-xs text-red-500">{errors.name?.message}</span>}
 
-        {error && <span className="text-xs text-red-500">{error.message}</span>}
+        <Button designation="primary" title="Submit" type="submit" disabled={isLoading} />
       </div>
     </form>
   )

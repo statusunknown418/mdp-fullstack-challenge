@@ -6,7 +6,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          duration: 2000,
+          style: {
+            borderRadius: '9999px',
+            backgroundColor: '#27272a',
+            border: '1px solid #52525b',
+            color: '#fff',
+          },
+        }}
+        position="bottom-center"
+      />
     </>
   )
 }
