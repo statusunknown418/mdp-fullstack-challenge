@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:production": "next lint --max-warnings 0",
-    "postinstall": "husky install",
+    "postinstall": "husky install && npx prisma generate",
     "tsc": "tsc -p tsconfig.json --noEmit",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "pre-commit": "yarn lint && yarn format",
