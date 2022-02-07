@@ -1,10 +1,20 @@
 import { Tab } from '@headlessui/react'
 import { NextPage } from 'next'
 
-export const Tabs: NextPage = ({ children }) => {
+export interface ITabsProps {
+  List: JSX.Element[] | JSX.Element
+}
+
+export const Tabs: NextPage<ITabsProps> = ({ children, List }) => {
   return (
-    <div className="p-1 w-full max-w-md flex flex-col gap-2 md:flex md:items-center md:justify-between rounded-primary bg-white/10">
-      <Tab.Group>{children}</Tab.Group>
+    <div className="max-w-md w-full flex flex-col gap-3">
+      <Tab.Group>
+        <Tab.List className="p-1.5 flex flex-col gap-2 sm:flex-row sm:items-center rounded-lg bg-white/10">
+          {List}
+        </Tab.List>
+
+        <Tab.Panels className="w-full">{children}</Tab.Panels>
+      </Tab.Group>
     </div>
   )
 }

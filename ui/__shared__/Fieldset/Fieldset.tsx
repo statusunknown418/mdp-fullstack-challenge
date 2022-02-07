@@ -8,15 +8,16 @@ export type TFieldsetProps = {
   Label: ReactNode
 }
 
-export const Fieldset: NextPage<TFieldsetProps> = ({ vertical, RenderElement: Input, Label }) => {
+export const Fieldset: NextPage<TFieldsetProps> = ({ vertical, RenderElement, Label }) => {
   return (
     <fieldset
-      className={clsx(vertical ? 'grid grid-cols-1 gap-3' : 'sm:grid sm:grid-cols-2 sm:max-w-md', [
-        'grid grid-cols-1 gap-2',
-      ])}
+      className={clsx(
+        vertical ? 'grid grid-cols-1 gap-3' : 'sm:grid sm:grid-cols-2 sm:max-w-md items-center',
+        ['grid grid-cols-1 gap-2']
+      )}
     >
-      <div className="flex flex-col gap-2">{Label}</div>
-      <div className="flex flex-col gap-2">{Input}</div>
+      <div>{Label}</div>
+      <div>{RenderElement}</div>
     </fieldset>
   )
 }

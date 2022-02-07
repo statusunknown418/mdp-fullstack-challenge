@@ -58,7 +58,7 @@ export const InitialForm: NextPage = () => {
         />
 
         <Fieldset
-          Label={<Label htmlFor="email" title="Email" />}
+          Label={<Label htmlFor="lastName" title="last name" />}
           RenderElement={
             <>
               <input {...register('lastName')} className="custom-input" id="lastName" />
@@ -70,7 +70,7 @@ export const InitialForm: NextPage = () => {
           Label={<Label htmlFor="dob" title="Date of birth" />}
           RenderElement={
             <>
-              <input {...register('dob')} className="custom-input" type="date" />
+              <input {...register('dob')} className="custom-input" type="date" id="dob" />
               {errors.dob && <span className="text-xs text-red-500">{errors.dob?.message}</span>}
             </>
           }
@@ -78,7 +78,7 @@ export const InitialForm: NextPage = () => {
 
         {errors.name && <span className="text-xs text-red-500">{errors.name?.message}</span>}
 
-        <Button designation="primary" title="Submit" type="submit" disabled={isLoading} />
+        <Button designation="primary" title="add user" type="submit" disabled={isLoading} />
       </div>
     </form>
   )
