@@ -1,1 +1,1 @@
-export { ScrollArea, type TScrollAreaProps } from './ScrollArea'
+export { ScrollArea } from './ScrollArea'
