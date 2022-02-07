@@ -10,7 +10,7 @@ export const useOperations = <TResponse>() => {
     () => async (url: string, payload: Record<string, unknown>) => {
       setIsLoading(true)
       try {
-        const data = await fetcher<TResponse>(url, payload)
+        const data = await fetcher(url, payload)
         setResponse(data)
 
         return data
