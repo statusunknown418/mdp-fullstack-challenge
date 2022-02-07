@@ -52,7 +52,7 @@ export const Button: NextPage<TButtonProps> = ({
         <>
           <span>{title}</span>
 
-          {disabled && <Spinner className="fill-white text-indigo-800" />}
+          {disabled && <Spinner className="text-indigo-800" />}
         </>
       )}
     </button>

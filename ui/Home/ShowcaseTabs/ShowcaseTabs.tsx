@@ -1,6 +1,7 @@
 import { Tabs } from '@/ui/__shared__/HeadlessUIPrimitives'
 import { SinglePanel } from '@/ui/__shared__/HeadlessUIPrimitives/SinglePanel'
 import { SingleTab } from '@/ui/__shared__/HeadlessUIPrimitives/SingleTab'
+import { ScrollArea } from '@/ui/__shared__/RadixPrimitives/ScrollArea'
 import { fetcher } from '@/utils/fetcher'
 import { NextPage } from 'next'
 import useSWR from 'swr'
@@ -33,19 +34,19 @@ export const ShowcaseTabs: NextPage<TShowcaseTabsProps> = ({ keys }) => {
           <div className="flex flex-col gap-4">
             <h2 className="text-lg font-bold">This is updated in realtime!</h2>
 
-            <section>
+            <ScrollArea>
               {data &&
                 data.map((d) => (
                   <div
                     key={d.id}
-                    className="flex gap-2 items-center justify-between px-2 py-1 rounded-primary border border-border-primary w-full"
+                    className="flex gap-2 items-center justify-between px-2 py-1 border-b border-border-primary w-full"
                   >
                     <p>{d.name}</p>
                     <p>{d.lastName}</p>
                     <p>{d.dob}</p>
                   </div>
                 ))}
-            </section>
+            </ScrollArea>
           </div>
         </SinglePanel>
       </Tabs>

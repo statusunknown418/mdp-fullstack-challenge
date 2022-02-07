@@ -1,7 +1,10 @@
-import { NextApiResponse } from 'next/dist/shared/lib/utils'
-import { TExtendedNextApiRequest } from './hello'
+import { NextApiRequest, NextApiResponse } from 'next/dist/shared/lib/utils'
 import { TInitialFormSchema } from '@/ui/Home/InitialForm/initialFormSchema.zod'
 import prisma from '@/db/prisma'
+
+export type TExtendedNextApiRequest<T> = Omit<NextApiRequest, 'body'> & {
+  body: T
+}
 
 export default async function usersHandler(
   req: TExtendedNextApiRequest<TInitialFormSchema>,
@@ -19,11 +22,13 @@ export default async function usersHandler(
           name: body.name,
           lastName: body.lastName,
           dob: new Date(body.dob),
+          createdAt: new Date(),
         },
       })
 
       res.status(200).json({ created: newUser })
     } catch (error) {
+      console.log(error)
       res.status(500).json({
         message: 'Internal Server Error',
       })
@@ -32,7 +37,12 @@ export default async function usersHandler(
 
   if (method === 'GET') {
     try {
-      const users = await prisma.user.findMany()
+      const users = await prisma.user.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+      })
+
       res.status(200).json(users)
     } catch (error) {
       const showError = error as Error
