@@ -1,8 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { TInitialFormSchema } from '@/ui/Home/InitialForm/initialFormSchema.zod'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type TExtendedNextApiRequest<T> = Omit<NextApiRequest, 'body'> & {
+export type TExtendedNextApiRequest<T> = Omit<NextApiRequest, 'body'> & {
   body: T
 }
 

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { NextPage } from 'next'
+import { Spinner } from './Spinner'
 
 export type TButtonProps = {
   type?: 'submit' | 'button'
@@ -20,6 +21,7 @@ export const Button: NextPage<TButtonProps> = ({
     <button
       className={clsx(
         designation === 'primary' && [
+          'flex items-center gap-5 justify-center',
           'bg-white px-2 py-1 text-black font-medium rounded-primary',
           'hover:bg-gray-300 transition-colors duration-150',
         ]
@@ -29,7 +31,7 @@ export const Button: NextPage<TButtonProps> = ({
     >
       <span>{title}</span>
 
-      {disabled && <span>Spinner</span>}
+      {disabled && <Spinner className="text-indigo-500" />}
     </button>
   )
 }

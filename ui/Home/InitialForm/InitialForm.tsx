@@ -7,6 +7,7 @@ import { Fieldset } from '../../__shared__/Fieldset'
 import { Button } from '@/ui/__shared__/Button'
 import { useOperations } from '@/utils/useOperations'
 import toast from 'react-hot-toast'
+import { useSWRConfig } from 'swr'
 
 export const InitialForm: NextPage = () => {
   const {
@@ -18,6 +19,7 @@ export const InitialForm: NextPage = () => {
   })
 
   const { error, executor, isLoading } = useOperations()
+  const { mutate } = useSWRConfig()
 
   const saveUser = async (formData: TInitialFormSchema) => {
     const { dob } = formData
@@ -32,9 +34,13 @@ export const InitialForm: NextPage = () => {
       return
     }
 
-    const data = await executor('/api/hello', formData)
+    await toast.promise(executor('/api/users', formData), {
+      loading: 'Saving...',
+      error: `There was an error ${error}`,
+      success: 'User saved',
+    })
 
-    data && !error && toast.success('Submitted successfully')
+    mutate('/api/users')
   }
 
   const onSubmit = handleSubmit(saveUser)
