@@ -3,7 +3,7 @@ import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area'
 
 export const ScrollArea: NextPage = ({ children }) => {
   return (
-    <ScrollAreaPrimitive.Root className="container h-52 overflow-hidden rounded-primary">
+    <ScrollAreaPrimitive.Root className="container h-52 rounded-primary">
       <ScrollAreaPrimitive.Viewport className="w-full h-full rounded-primary border border-border-primary">
         {children}
       </ScrollAreaPrimitive.Viewport>

@@ -1,12 +1,13 @@
 import { ShowcaseTabs, TExtendedInitialFormSchema } from '@/ui/Home/ShowcaseTabs/ShowcaseTabs'
 import { Button } from '@/ui/__shared__/Button'
 import { Spinner } from '@/ui/__shared__/Button/Spinner'
+import { ErrorMessage } from '@/ui/__shared__/ErrorMessage'
 import { fetcher } from '@/utils/fetcher'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import useSWR from 'swr'
 
-const tabsKeys = ['form', 'all users', 'data summary']
+const tabsKeys = ['form', 'client list', 'data summary']
 
 const Home: NextPage = () => {
   const { data, error } = useSWR<TExtendedInitialFormSchema[]>('/api/users', fetcher)
@@ -26,13 +27,12 @@ const Home: NextPage = () => {
             <p className="text-xs text-zinc-400">
               &rarr; Navigate through the tabs to see the details
             </p>
+            {!data && <Spinner className="text-indigo-600 mx-auto text-center" />}
           </header>
 
           <ShowcaseTabs keys={tabsKeys} />
 
-          {!data && <Spinner className="text-indigo-600 mx-auto text-center" />}
-
-          {error && <span>error</span>}
+          {error && <ErrorMessage title="Oh, an unexpected error ocurred" />}
         </main>
 
         <footer className="flex items-center justify-center mt-6">
@@ -41,6 +41,7 @@ const Home: NextPage = () => {
             designation="link"
             href="https://github.com/AlvaroAquijeDiaz"
             title="alvaro aquije"
+            target="_blank"
           />
         </footer>
       </div>

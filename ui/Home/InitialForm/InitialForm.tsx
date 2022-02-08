@@ -41,6 +41,7 @@ export const InitialForm: NextPage = () => {
     })
 
     mutate('/api/users')
+    mutate('/api/summary')
   }
 
   const onSubmit = handleSubmit(saveUser)

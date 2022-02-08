@@ -11,6 +11,7 @@ export type TButtonProps = {
   title: string
   href?: string
   target?: '_blank' | '_self' | '_parent' | '_top'
+  className?: string
 }
 
 export const Button: NextPage<TButtonProps> = ({
@@ -21,23 +22,29 @@ export const Button: NextPage<TButtonProps> = ({
   title,
   href,
   target,
+  className,
 }) => {
   return (
     <button
       className={clsx(
         'capitalize',
         'cursor-pointer',
+        'flex items-center gap-5 justify-center px-2 py-1',
         disabled && 'cursor-not-allowed bg-gray-400',
         designation === 'primary' && [
-          'flex items-center gap-5 justify-center',
-          'bg-white px-2 py-1 text-black font-medium rounded-primary',
+          'bg-white text-black font-medium rounded-primary',
           'hover:bg-gray-300 transition-colors duration-150',
+        ],
+        designation === 'secondary' && [
+          'bg-bg-secondary border border-border-primary rounded-primary',
+          'hover:bg-zinc-700 hover:border-gray-500 transition-colors duration-150',
         ],
         designation === 'link' && [
           'flex items-center gap-5 justify-center text-base',
-          'px-2 py-1 text-indigo-600 font-medium rounded-primary',
+          'text-indigo-600 font-medium rounded-primary',
           'hover:text-indigo-400 transition-colors duration-150',
-        ]
+        ],
+        className
       )}
       type={type}
       onClick={onClick}
