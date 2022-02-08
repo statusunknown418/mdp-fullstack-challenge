@@ -87,7 +87,9 @@ export const ShowcaseTabs: NextPage<TShowcaseTabsProps> = ({ keys }) => {
               <ScrollArea>
                 {error && <ErrorMessage title="Oops, there was a server error" />}
 
-                {dataFilterBy?.length === 0 && <p>No users yet!</p>}
+                {dataFilterBy?.length === 0 && (
+                  <p className="text-center italic font-semibold mt-5">No users yet!</p>
+                )}
                 {dataFilterBy &&
                   dataFilterBy.map((user) => (
                     <div
